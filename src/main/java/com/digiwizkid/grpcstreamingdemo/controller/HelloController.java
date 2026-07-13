@@ -1,7 +1,7 @@
-package com.digiwizkid.grpcdemo.controller;
+package com.digiwizkid.grpcstreamingdemo.controller;
 
-import com.digiwizkid.grpcdemo.proto.GrpcDemoServiceGrpc;
-import com.digiwizkid.grpcdemo.proto.Message;
+import com.digiwizkid.grpcstreamingdemo.proto.GrpcStreamingServiceGrpc;
+import com.digiwizkid.grpcstreamingdemo.proto.Message;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.http.MediaType;
@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -19,10 +17,10 @@ import java.util.concurrent.TimeUnit;
 public class HelloController {
 
     @GrpcClient("hello-service")
-    private GrpcDemoServiceGrpc.GrpcDemoServiceBlockingStub blockingStub;
+    private GrpcStreamingServiceGrpc.GrpcStreamingServiceBlockingStub blockingStub;
 
     @GrpcClient("hello-service")
-    private GrpcDemoServiceGrpc.GrpcDemoServiceStub asyncStub;
+    private GrpcStreamingServiceGrpc.GrpcStreamingServiceStub asyncStub;
 
     // 1. Unary
     @GetMapping("/unary")

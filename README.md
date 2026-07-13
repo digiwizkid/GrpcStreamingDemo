@@ -14,7 +14,7 @@ A minimal Spring Boot demo of all four gRPC communication patterns.
 ## Proto Definition
 
 ```protobuf
-service GrpcDemoService {
+service GrpcStreamingService {
     rpc unary        (Message) returns (Message) {}
     rpc serverStream (Message) returns (stream Message) {}
     rpc clientStream (stream Message) returns (Message) {}
@@ -29,12 +29,12 @@ message Message {
 ## Project Structure
 
 ```
-src/main/proto/hello.proto                        # Service definition
-src/main/java/.../
-  GrpcDemoApplication.java                        # Spring Boot main
-  service/GrpcDemoServiceImpl.java                # gRPC server (all 4 patterns)
-  controller/HelloController.java                 # REST endpoints (gRPC client)
-src/main/resources/application.yml                # Config
+src/main/proto/hello.proto                              # Service definition
+src/main/java/com/digiwizkid/grpcstreamingdemo/
+  GrpcStreamingDemoApplication.java                     # Spring Boot main
+  service/GrpcStreamingDemoServiceImpl.java             # gRPC server (all 4 patterns)
+  controller/HelloController.java                       # REST endpoints (gRPC client)
+src/main/resources/application.yml                      # Config
 ```
 
 ## Run
@@ -102,7 +102,7 @@ Postman v10.0+ supports gRPC natively.
 
 ### Unary
 
-1. Select method: `hello.GrpcDemoService/unary`
+1. Select method: `hello.GrpcStreamingService/unary`
 2. Body tab → enter:
    ```json
    { "text": "Bob" }
@@ -114,7 +114,7 @@ Postman v10.0+ supports gRPC natively.
 
 ### Server Streaming
 
-1. Select method: `hello.GrpcDemoService/serverStream`
+1. Select method: `hello.GrpcStreamingService/serverStream`
 2. Body tab → enter:
    ```json
    { "text": "Hi" }
@@ -128,7 +128,7 @@ Postman v10.0+ supports gRPC natively.
 
 ### Client Streaming
 
-1. Select method: `hello.GrpcDemoService/clientStream`
+1. Select method: `hello.GrpcStreamingService/clientStream`
 2. Click **+ Message** to add each message, then **Send Message** for each:
    ```
    { "text": "a" }
@@ -142,7 +142,7 @@ Postman v10.0+ supports gRPC natively.
 
 ### Bidirectional Streaming
 
-1. Select method: `hello.GrpcDemoService/bidiStream`
+1. Select method: `hello.GrpcStreamingService/bidiStream`
 2. Add and send messages one at a time:
    ```
    { "text": "ping 1" }

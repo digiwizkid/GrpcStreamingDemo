@@ -1,12 +1,12 @@
-package com.digiwizkid.grpcdemo.service;
+package com.digiwizkid.grpcstreamingdemo.service;
 
-import com.digiwizkid.grpcdemo.proto.GrpcDemoServiceGrpc;
-import com.digiwizkid.grpcdemo.proto.Message;
+import com.digiwizkid.grpcstreamingdemo.proto.GrpcStreamingServiceGrpc;
+import com.digiwizkid.grpcstreamingdemo.proto.Message;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 
 @GrpcService
-public class GrpcDemoServiceImpl extends GrpcDemoServiceGrpc.GrpcDemoServiceImplBase {
+public class GrpcStreamingDemoServiceImpl extends GrpcStreamingServiceGrpc.GrpcStreamingServiceImplBase {
 
     // 1. Unary - receive one message, send one reply
     @Override

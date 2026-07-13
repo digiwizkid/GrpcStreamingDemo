@@ -1,11 +1,11 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.digiwizkid.grpcdemo.proto";
+option java_package = "com.digiwizkid.grpcstreamingdemo.proto";
 
 package hello;
 
-service GrpcDemoService {
+service GrpcStreamingService {
     // 1. Unary: single request, single response
     rpc unary (Message) returns (Message) {}
 
