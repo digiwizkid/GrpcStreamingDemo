@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.digiwizkid.grpcdemo.proto";
+
+package hello;
+
+service GrpcDemoService {
+    // 1. Unary: single request, single response
+    rpc unary (Message) returns (Message) {}
+
+    // 2. Server streaming: single request, stream of responses
+    rpc serverStream (Message) returns (stream Message) {}
+
+    // 3. Client streaming: stream of requests, single response
+    rpc clientStream (stream Message) returns (Message) {}
+
+    // 4. Bidirectional streaming: stream of requests, stream of responses
+    rpc bidiStream (stream Message) returns (stream Message) {}
+}
+
+message Message {
+    string text = 1;
+}
